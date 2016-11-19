@@ -34,9 +34,8 @@ char* nextn(FileScanner* leitor){
     int i=0;
     char* palavra = (char*)calloc(leitor->tamBufferToken, sizeof(char));
 
-    printf("Entrei!\n");
-
-    while ((c = getc(leitor->arquivo)) != EOF && c != '\n') {
+    while (!feof(leitor->arquivo) && c != '\n') {
+        c = getc(leitor->arquivo);
         palavra[i++] = c;
     }
 

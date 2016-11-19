@@ -18,14 +18,11 @@ int main() {
 
     char* token;
 
-    do{
+    while(hasNext(fileScanner)){
         token = nextn(fileScanner);
-        //inFix(token);
-        printf("%s", token);
+        inFix(token);
         free(token);
-        //printf("entrei main!\n");
     }
-    while(hasNext(fileScanner));
 
     return (EXIT_SUCCESS);
 }

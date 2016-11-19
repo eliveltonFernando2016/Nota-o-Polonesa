@@ -6,8 +6,7 @@
 void inFix(char* expressao);
 
 void inFix(char* expressao){
-    int i=0, aux=0;
-    int size;
+    int i=0, aux=0, size=0;
 
     //verifica tamanho da expressão
     while (expressao[size] != '\0') {
