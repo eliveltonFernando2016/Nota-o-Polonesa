@@ -55,9 +55,10 @@ void inFix(char* expressao){
                 }
             }
         }
+        i++;
     }
 
-    printf("%s", p);
+    printf("%s\n", p);
 }
 
 #endif	// INFIX_H
