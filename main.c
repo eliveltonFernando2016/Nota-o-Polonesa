@@ -17,12 +17,12 @@ int main() {
     FileScanner* fileScanner = newFileScanner("expressao.txt");
 
     char* token;
-
-    while(hasNext(fileScanner)){
+    
+    do{
         token = nextn(fileScanner);
         inFix(token);
         free(token);
-    }
+    } while (hasNext(fileScanner));
 
     return (EXIT_SUCCESS);
 }

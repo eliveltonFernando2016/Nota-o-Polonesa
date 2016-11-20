@@ -6,12 +6,7 @@
 void inFix(char* expressao);
 
 void inFix(char* expressao){
-    int i=0, aux=0, size=0;
-
-    //verifica tamanho da expressão
-    while (expressao[size] != '\0') {
-        size++;
-    }
+    int i=0, aux=0, size=strlen(expressao);
 
     //declara p do tamanho da expressao, essa será minha variável de retorno
     char* p = (char*) calloc(1, (size*sizeof(char)));
@@ -36,17 +31,20 @@ void inFix(char* expressao){
                 push(pilha, expressao[i]);
             }
             else{
-                if(expressao[i] == '+' || expressao[i] == '-' || expressao[i] == '('){
+                if(expressao[i] == '('){
+                    push(pilha, expressao[i]);
+                }
+                else if(expressao[i] == '+' || expressao[i] == '-'){
                     if(top(pilha) == '+' || top(pilha) == '-'){ //verifica se no topo da pilha existe um item de mesma prioridade que na expressão
                         p[aux++] = pop(pilha);
                     }
                     push(pilha, expressao[i]);
                 }
                 else if(expressao[i] == ')'){
-                    while (top(pilha) != '(') {
+                    while (top(pilha) != '(' && tamanhoPilha(pilha) > 0) { //desempilha todos os itens da pilha até encontrar o ')'
                         p[aux++] = pop(pilha);
                     }
-                    pop(pilha);
+                    pop(pilha);//retira o '(' da pilha
                 }
                 else if(expressao[i] == '*' || expressao['/']){
                     if(top(pilha) == '*' || top(pilha) == '/'){ //verifica se no topo da pilha existe um item de mesma prioridade que na expressão
@@ -58,7 +56,12 @@ void inFix(char* expressao){
         i++;
     }
 
-    printf("%s\n", p);
+    if(tamanhoPilha(pilha)){
+        printf("%c\n", top(pilha));
+        p[aux++] = pop(pilha);
+    }
+
+    printf("%s", p);
 }
 
 #endif	// INFIX_H

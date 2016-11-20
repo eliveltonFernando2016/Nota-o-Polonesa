@@ -39,6 +39,8 @@ char* nextn(FileScanner* leitor){
         palavra[i++] = c;
     }
 
+    i = i-2;
+
     palavra[i] = '\0';
     char* token = (char*) calloc(i+1, sizeof(char));
     strcpy(token, palavra);
