@@ -33,7 +33,7 @@ Pilha* criaPilha(int size){
 
     p->qtde = 0;
     p->tamanhoVet = size;
-    p->vetor = (char*)calloc(10, sizeof(char*));
+    p->vetor = (char*)calloc(size, sizeof(char*));
 
     return p;
 }
@@ -50,7 +50,8 @@ char* pop(Pilha* p){
     }
 
     char* e = (char*)calloc(1,sizeof(char));
-    e = p->vetor[p->qtde--];
+    *e = p->vetor[p->qtde-1];
+    p->qtde--;
 
     return e;
 }
@@ -61,7 +62,7 @@ char top(Pilha* p){
         return NULL;
     }
 
-    char e = p->vetor[p->qtde];
+    char e = p->vetor[p->qtde-1];
 
     return e;
 }
@@ -73,12 +74,12 @@ int tamanhoPilha(Pilha* p){
     return qtde;
 }
 
+//imprime a pilha
 void printPilha(Pilha* p){
     int i;
     for(i=0; i < p->qtde; i++){
-        printf("%c\n", p->vetor[i]);
+        printf("%c, ", p->vetor[i]);
     }
 }
 
 #endif	// PILHA_H
-

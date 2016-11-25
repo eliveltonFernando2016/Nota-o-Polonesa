@@ -28,10 +28,11 @@ void inFix(char* expressao){
         }
         else{
             if(tamanhoPilha(pilha) == 0){ //verifica se a pilha está vazia, então empilha
-                push(pilha, expressao[i]);
+                char exp = expressao[i];
+                push(pilha, exp);
             }
             else{
-                if(expressao[i] == '('){
+                if(expressao[i] == '('){ //empilha um '('
                     push(pilha, expressao[i]);
                 }
                 else if(expressao[i] == '+' || expressao[i] == '-'){
@@ -56,9 +57,10 @@ void inFix(char* expressao){
         i++;
     }
 
+    char* operador = (char*)calloc(1, sizeof(char));
     if(tamanhoPilha(pilha)){
-        printf("%c\n", top(pilha));
-        p[aux++] = pop(pilha);
+        operador = pop(pilha);
+        p[aux] = operador;
     }
 
     printf("%s", p);
