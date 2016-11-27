@@ -13,7 +13,7 @@
 #ifndef PILHA_H
 #define PILHA_H
 
-#include "FileScanner.h"
+#include "FileOutPut.h"
 
 typedef struct{
     char* vetor;
@@ -26,60 +26,5 @@ void push(Pilha* p, char elemento);
 char* pop(Pilha* p);
 char top(Pilha* p);
 int tamanhoPilha(Pilha* p);
-
-//inicializa uma pilha
-Pilha* criaPilha(int size){
-    Pilha* p = (Pilha*)malloc(sizeof(Pilha));
-
-    p->qtde = 0;
-    p->tamanhoVet = size;
-    p->vetor = (char*)calloc(size, sizeof(char*));
-
-    return p;
-}
-
-//insiro 1 item na pilha
-void push(Pilha* p, char elemento){
-    p->vetor[p->qtde++] = elemento;
-}
-
-//retira item do topo da pilha, e devolve o item
-char* pop(Pilha* p){
-    if(p->qtde == 0){
-        return NULL;
-    }
-
-    char* e = (char*)calloc(1,sizeof(char));
-    *e = p->vetor[p->qtde-1];
-    p->qtde--;
-
-    return e;
-}
-
-//devolve uma cópia do valor do topo da pilha
-char top(Pilha* p){
-    if(p->qtde == 0){
-        return NULL;
-    }
-
-    char e = p->vetor[p->qtde-1];
-
-    return e;
-}
-
-//devolve o valor de itens na pilha
-int tamanhoPilha(Pilha* p){
-    int qtde;
-    qtde = p->qtde;
-    return qtde;
-}
-
-//imprime a pilha
-void printPilha(Pilha* p){
-    int i;
-    for(i=0; i < p->qtde; i++){
-        printf("%c, ", p->vetor[i]);
-    }
-}
 
 #endif	// PILHA_H

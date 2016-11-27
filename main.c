@@ -11,10 +11,10 @@
  * Created on 19 de Novembro de 2016, 12:06
  */
 
-#include "infix.h"
+#include "Tradutor.h"
 
 int main() {
-    FileScanner* fileScanner = newFileScanner("expressao.txt");
+    FileScanner* fileScanner = newFileScanner("expressao2.txt");
 
     char* token;
     

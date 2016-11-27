@@ -4,15 +4,17 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
-      <itemPath>FileScanner.h</itemPath>
+      <itemPath>FileInPut.h</itemPath>
+      <itemPath>FileOutPut.h</itemPath>
       <itemPath>Pilha.h</itemPath>
-      <itemPath>infix.h</itemPath>
-      <itemPath>posfix.h</itemPath>
-      <itemPath>translateexpression.h</itemPath>
+      <itemPath>PosFix.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
+      <itemPath>FileOutPut.c</itemPath>
+      <itemPath>Pilha.c</itemPath>
+      <itemPath>Tradutor.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -44,17 +46,21 @@
           <standard>10</standard>
         </cTool>
       </compileType>
-      <item path="FileScanner.h" ex="false" tool="3" flavor2="0">
+      <item path="FileInPut.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FileOutPut.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="FileOutPut.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Pilha.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Pilha.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="infix.h" ex="false" tool="3" flavor2="0">
+      <item path="PosFix.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Tradutor.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="posfix.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="translateexpression.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -78,17 +84,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="FileScanner.h" ex="false" tool="3" flavor2="0">
+      <item path="FileInPut.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FileOutPut.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="FileOutPut.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Pilha.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Pilha.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="infix.h" ex="false" tool="3" flavor2="0">
+      <item path="PosFix.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Tradutor.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="posfix.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="translateexpression.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
