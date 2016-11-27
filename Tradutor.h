@@ -5,5 +5,6 @@
 
 char* PosFix(char* expressao);
 
+char* Interpretador(char* expressao);
 #endif	// TRADUTOR_H
 

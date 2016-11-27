@@ -14,14 +14,11 @@
 
 char* PosFix(char* expressao){
     int i=0, aux=0, size=strlen(expressao);
-    char teste;
 
     //declara p do tamanho da expressao, essa será minha variável de retorno
     char* p = (char*) calloc(1, (size*sizeof(char)));
 
     Pilha* pilha = criaPilha(size);
-    
-    //printf("Exp. Original: %s", expressao);
 
     while (expressao[i] != '\0'){
         if (isdigit(expressao[i])){
@@ -83,4 +80,8 @@ char* PosFix(char* expressao){
     }
 
     return p;
+}
+
+char* Interpretador(char* expressao){
+    
 }

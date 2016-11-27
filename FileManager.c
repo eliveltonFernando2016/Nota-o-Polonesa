@@ -64,5 +64,10 @@ void FileWriter(char* arquivo, char* conteudo){
     exp = conteudo;
 
     FILE *file = fopen(arq, "a");
+
+    if(file == NULL){
+        printf("Erro na abertura do arquivo!");
+    }
+
     fprintf(file, "%s\n", exp);
 }
