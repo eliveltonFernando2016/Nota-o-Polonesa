@@ -29,27 +29,28 @@ void push(Pilha* p, char elemento){
 }
 
 //retira item do topo da pilha, e devolve o item
-char* pop(Pilha* p){
+char pop(Pilha* p){
+    char* e = (char*)calloc(1,sizeof(char));
     if(p->qtde == 0){
-        return NULL;
+        return *e;
     }
 
-    char* e = (char*)calloc(1,sizeof(char));
     *e = p->vetor[p->qtde-1];
     p->qtde--;
 
-    return e;
+    return *e;
 }
 
 //devolve uma cópia do valor do topo da pilha
 char top(Pilha* p){
+    char* e = (char*)calloc(1,sizeof(char));
     if(p->qtde == 0){
-        return NULL;
+        return *e;
     }
 
-    char e = p->vetor[p->qtde-1];
+    *e = p->vetor[p->qtde-1];
 
-    return e;
+    return *e;
 }
 
 //devolve o valor de itens na pilha

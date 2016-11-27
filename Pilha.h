@@ -23,7 +23,7 @@ typedef struct{
 
 Pilha* criaPilha(int size);
 void push(Pilha* p, char elemento);
-char* pop(Pilha* p);
+char pop(Pilha* p);
 char top(Pilha* p);
 int tamanhoPilha(Pilha* p);
 

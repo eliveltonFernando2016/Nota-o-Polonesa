@@ -20,7 +20,7 @@ int main() {
     
     do{
         token = nextn(fileScanner);
-        inFix(token);
+        PosFix(token);
         free(token);
     } while (hasNext(fileScanner));
 

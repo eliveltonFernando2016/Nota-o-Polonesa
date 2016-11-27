@@ -7,7 +7,7 @@
       <itemPath>FileInPut.h</itemPath>
       <itemPath>FileOutPut.h</itemPath>
       <itemPath>Pilha.h</itemPath>
-      <itemPath>PosFix.h</itemPath>
+      <itemPath>Tradutor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
@@ -56,9 +56,9 @@
       </item>
       <item path="Pilha.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="PosFix.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Tradutor.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Tradutor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -94,9 +94,9 @@
       </item>
       <item path="Pilha.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="PosFix.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Tradutor.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Tradutor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>

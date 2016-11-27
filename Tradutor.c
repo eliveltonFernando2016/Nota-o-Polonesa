@@ -59,12 +59,9 @@ void PosFix(char* expressao){
         i++;
     }
 
-    char* operador = (char*)calloc(1, sizeof(char));
-    if(tamanhoPilha(pilha)){ //Verifica se ainda há mais 1 item na pilha.
+    if(tamanhoPilha(pilha)){ //Verifica se ainda há mais itens na pilha.
         while (tamanhoPilha(pilha)) {
-            operador = pop(pilha);
-            p[aux++] = operador[0];
-            free(operador);
+            p[aux++] = pop(pilha);
         }
     }
 
