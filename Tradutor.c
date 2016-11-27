@@ -21,37 +21,52 @@ void PosFix(char* expressao){
     Pilha* pilha = criaPilha(size);
 
     while (expressao[i] != '\0'){
-        if (expressao[i] == '0' ||
-            expressao[i] == '1' ||
-            expressao[i] == '2' ||
-            expressao[i] == '3' ||
-            expressao[i] == '4' ||
-            expressao[i] == '5' ||
-            expressao[i] == '6' ||
-            expressao[i] == '7' ||
-            expressao[i] == '8' ||
-            expressao[i] == '9'){
+        if (isdigit(expressao[i])){
                 p[aux++] = expressao[i];
         }
         else{
             if(expressao[i] == '('){ //empilha um '('
+                if(isdigit(p[aux-1])){ //verifica se há um número anterior e adiciona espaço.
+                    p[aux++] = ' ';
+                }
                 push(pilha, expressao[i]);
             }
             else if(expressao[i] == '+' || expressao[i] == '-'){
+                if(isdigit(p[aux-1])){ //verifica se há um número anterior e adiciona espaço.
+                    p[aux++] = ' ';
+                }
                 if(top(pilha) == '+' || top(pilha) == '-'){ //verifica se no topo da pilha existe um item de mesma prioridade que na expressão
                     p[aux++] = pop(pilha);
+                    if(p[aux-1] != ' '){ //verifica se há um espaço anterior e adiciona somente se não houver.
+                        p[aux++] = ' ';
+                    }
                 }
                 push(pilha, expressao[i]);
             }
             else if(expressao[i] == ')'){
+                if(isdigit(p[aux-1])){ //verifica se há um número anterior e adiciona espaço.
+                    p[aux++] = ' ';
+                    if(p[aux-1] != ' '){ //verifica se há um espaço anterior e adiciona somente se não houver.
+                        p[aux++] = ' ';
+                    }
+                }
                 while (top(pilha) != '(' && tamanhoPilha(pilha) > 0) { //desempilha todos os itens da pilha até encontrar o ')'
                     p[aux++] = pop(pilha);
+                    if(p[aux-1] != ' '){
+                        p[aux++] = ' ';
+                    }
                 }
                 pop(pilha);//retira o '(' da pilha
             }
             else if(expressao[i] == '*' || expressao['/']){
+                if(isdigit(p[aux-1])){ //verifica se há um número anterior e adiciona espaço.
+                    p[aux++] = ' ';
+                }
                 if(top(pilha) == '*' || top(pilha) == '/'){ //verifica se no topo da pilha existe um item de mesma prioridade que na expressão
                     p[aux++] = pop(pilha);
+                    if(p[aux-1] != ' '){ //verifica se há um espaço anterior e adiciona somente se não houver.
+                        p[aux++] = ' ';
+                    }
                 }
                 push(pilha, expressao[i]);
             }
@@ -61,10 +76,12 @@ void PosFix(char* expressao){
 
     if(tamanhoPilha(pilha)){ //Verifica se ainda há mais itens na pilha.
         while (tamanhoPilha(pilha)) {
+            if(p[aux-1] != ' '){ //verifica se há um espaço anterior e adiciona somente se não houver.
+                p[aux++] = ' ';
+            }
             p[aux++] = pop(pilha);
         }
     }
 
     printf("%s\n", p);
 }
-
