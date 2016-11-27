@@ -12,7 +12,7 @@
  */
 #include "Tradutor.h"
 
-void PosFix(char* expressao){
+char* PosFix(char* expressao){
     int i=0, aux=0, size=strlen(expressao);
     char teste;
 
@@ -82,5 +82,5 @@ void PosFix(char* expressao){
         }
     }
 
-    printf("%s\n", p);
+    return p;
 }

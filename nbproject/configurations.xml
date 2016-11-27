@@ -4,15 +4,14 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
-      <itemPath>FileInPut.h</itemPath>
-      <itemPath>FileOutPut.h</itemPath>
+      <itemPath>FileManager.h</itemPath>
       <itemPath>Pilha.h</itemPath>
       <itemPath>Tradutor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
-      <itemPath>FileOutPut.c</itemPath>
+      <itemPath>FileManager.c</itemPath>
       <itemPath>Pilha.c</itemPath>
       <itemPath>Tradutor.c</itemPath>
       <itemPath>main.c</itemPath>
@@ -46,11 +45,9 @@
           <standard>10</standard>
         </cTool>
       </compileType>
-      <item path="FileInPut.h" ex="false" tool="3" flavor2="0">
+      <item path="FileManager.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="FileOutPut.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="FileOutPut.h" ex="false" tool="3" flavor2="0">
+      <item path="FileManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Pilha.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -84,11 +81,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="FileInPut.h" ex="false" tool="3" flavor2="0">
+      <item path="FileManager.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="FileOutPut.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="FileOutPut.h" ex="false" tool="3" flavor2="0">
+      <item path="FileManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Pilha.c" ex="false" tool="0" flavor2="0">
       </item>

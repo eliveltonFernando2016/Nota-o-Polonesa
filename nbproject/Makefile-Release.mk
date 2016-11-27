@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/FileOutPut.o \
+	${OBJECTDIR}/FileManager.o \
 	${OBJECTDIR}/Pilha.o \
 	${OBJECTDIR}/Tradutor.o \
 	${OBJECTDIR}/main.o
@@ -65,10 +65,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/nota__o_polonesa: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/nota__o_polonesa ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/FileOutPut.o: FileOutPut.c
+${OBJECTDIR}/FileManager.o: FileManager.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileOutPut.o FileOutPut.c
+	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileManager.o FileManager.c
 
 ${OBJECTDIR}/Pilha.o: Pilha.c
 	${MKDIR} -p ${OBJECTDIR}

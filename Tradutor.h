@@ -3,6 +3,7 @@
 
 #include "Pilha.h"
 
-void PosFix(char* expressao);
+char* PosFix(char* expressao);
+
 #endif	// TRADUTOR_H
 

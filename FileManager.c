@@ -10,7 +10,7 @@
  *
  * Created on 26 de Novembro de 2016, 23:53
  */
-#include "FileOutPut.h"
+#include "FileManager.h"
 
 FileScanner* newFileScanner(char* arquivo){
     FileScanner* fileScanner = (FileScanner*)calloc(1, sizeof(FileScanner));
@@ -41,4 +41,28 @@ int hasNext(FileScanner* leitor){
     }
 
     return 0;
+}
+
+void newFile(char* arquivo){
+    char* arq = (char*)calloc(1, sizeof(char)*strlen(arquivo));
+    arq = arquivo;
+
+    FILE *file = fopen(arq, "w");
+
+    if(file == NULL){
+        printf("Erro na abertura do arquivo!");
+    }
+
+    fclose(file);
+}
+
+void FileWriter(char* arquivo, char* conteudo){
+    char* arq = (char*)calloc(1, sizeof(char)*strlen(arquivo));
+    arq = arquivo;
+
+    char* exp = (char*)calloc(1,sizeof(char)*strlen(conteudo));
+    exp = conteudo;
+
+    FILE *file = fopen(arq, "a");
+    fprintf(file, "%s\n", exp);
 }

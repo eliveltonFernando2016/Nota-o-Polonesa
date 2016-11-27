@@ -14,13 +14,14 @@
 #include "Tradutor.h"
 
 int main() {
-    FileScanner* fileScanner = newFileScanner("expressao2.txt");
+    FileScanner* fileScanner = newFileScanner("expressao.txt");
 
+    newFile("ExpressaoTraduzida.txt");
     char* token;
     
     do{
         token = nextn(fileScanner);
-        PosFix(token);
+        FileWriter("ExpressaoTraduzida.txt", PosFix(token));
         free(token);
     } while (hasNext(fileScanner));
 
