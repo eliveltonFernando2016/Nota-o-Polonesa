@@ -14,21 +14,21 @@
 
 void PosFix(char* expressao){
     int i=0, aux=0, size=strlen(expressao);
+    char teste;
 
     //declara p do tamanho da expressao, essa será minha variável de retorno
     char* p = (char*) calloc(1, (size*sizeof(char)));
 
     Pilha* pilha = criaPilha(size);
+    
+    //printf("Exp. Original: %s", expressao);
 
     while (expressao[i] != '\0'){
         if (isdigit(expressao[i])){
-                p[aux++] = expressao[i];
+            p[aux++] = expressao[i];
         }
         else{
             if(expressao[i] == '('){ //empilha um '('
-                if(isdigit(p[aux-1])){ //verifica se há um número anterior e adiciona espaço.
-                    p[aux++] = ' ';
-                }
                 push(pilha, expressao[i]);
             }
             else if(expressao[i] == '+' || expressao[i] == '-'){
@@ -46,19 +46,16 @@ void PosFix(char* expressao){
             else if(expressao[i] == ')'){
                 if(isdigit(p[aux-1])){ //verifica se há um número anterior e adiciona espaço.
                     p[aux++] = ' ';
-                    if(p[aux-1] != ' '){ //verifica se há um espaço anterior e adiciona somente se não houver.
-                        p[aux++] = ' ';
-                    }
                 }
-                while (top(pilha) != '(' && tamanhoPilha(pilha) > 0) { //desempilha todos os itens da pilha até encontrar o ')'
+                while (top(pilha) != '(') { //desempilha todos os itens da pilha até encontrar o ')'
                     p[aux++] = pop(pilha);
-                    if(p[aux-1] != ' '){
+                    if(p[aux-1] != ' '){ //verifica se há um número anterior e adiciona espaço.
                         p[aux++] = ' ';
                     }
                 }
                 pop(pilha);//retira o '(' da pilha
             }
-            else if(expressao[i] == '*' || expressao['/']){
+            else if(expressao[i] == '*' || expressao[i] == '/'){
                 if(isdigit(p[aux-1])){ //verifica se há um número anterior e adiciona espaço.
                     p[aux++] = ' ';
                 }
@@ -79,7 +76,9 @@ void PosFix(char* expressao){
             if(p[aux-1] != ' '){ //verifica se há um espaço anterior e adiciona somente se não houver.
                 p[aux++] = ' ';
             }
-            p[aux++] = pop(pilha);
+            if(top(pilha) != '('){
+                p[aux++] = pop(pilha);
+            }
         }
     }
 
