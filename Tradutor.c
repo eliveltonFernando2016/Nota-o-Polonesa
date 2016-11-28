@@ -82,6 +82,69 @@ char* PosFix(char* expressao){
     return p;
 }
 
-char* Interpretador(char* expressao){
+float Interpretador(char* expressao){
+    Stack* stack = criaStack(strlen(expressao));
+    char* p = (char*)calloc(1, sizeof(char)*strlen(expressao));
+    char* charConcat = (char*)calloc(1, sizeof(char)*2);
+    char* charAux = (char*)calloc(1, sizeof(char));
+
+    float operacaoAux1 = 0, operacaoAux2 = 0;
+    int i=0, aux=0, espaco=0;
+
+    while (expressao[i] != '\0') {
+        if(expressao[i] == ' '){//Se caso houver um espaço entre os caracter seta a variavel espaço para 1"true"
+            espaco = 1;
+        }
+        else if(isdigit(expressao[i])){
+            if(espaco){ //Se caso o espaço for verdadeiro quer dizer que não é um número é de somente 1 digito ou menor que 9
+                if(charConcat != NULL){//Se o charConcat não estiver vazio ele esvazia adicionando conteúdo na pilha e esvaziando a variavel.
+                    pushStack(stack, atof(charConcat));
+                    charConcat = NULL;
+                }
+                charAux[0] = expressao[i];
+                pushStack(stack, atof(charAux));
+                espaco = 0;
+            }
+            else{//Se caso houver 2 ou mais numeros juntos sem espaço entre eles adiciono na variavel charConcat.
+                charConcat[aux++] = expressao[i];
+            }
+        }
+        else if(expressao[i] == '+'){
+            operacaoAux1 = popStack(stack);
+            operacaoAux2 = popStack(stack);
+
+            operacaoAux1 += operacaoAux2;
+            pushStack(stack, operacaoAux1);
+        }
+        else if(expressao[i] == '-'){
+            operacaoAux1 = popStack(stack);
+            operacaoAux2 = popStack(stack);
+
+            operacaoAux2 -= operacaoAux1;
+            pushStack(stack, operacaoAux2);
+        }
+        else if(expressao[i] == '*'){
+            operacaoAux1 = popStack(stack);
+            operacaoAux2 = popStack(stack);
+
+            operacaoAux1 *= operacaoAux2;
+            pushStack(stack, operacaoAux1);
+        }
+        else if(expressao[i] == '/'){
+            operacaoAux1 = popStack(stack);
+            operacaoAux2 = popStack(stack);
+
+            operacaoAux2 /= operacaoAux1;
+            pushStack(stack, operacaoAux2);
+        }
+        i++;
+    }
     
+    float res = popStack(stack);
+
+    free(stack);
+    free(charConcat);
+    free(charAux);
+
+    return res;
 }

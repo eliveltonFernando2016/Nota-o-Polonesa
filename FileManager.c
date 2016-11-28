@@ -15,7 +15,7 @@
 FileScanner* newFileScanner(char* arquivo){
     FileScanner* fileScanner = (FileScanner*)calloc(1, sizeof(FileScanner));
     fileScanner->arquivo = fopen(arquivo,"r");
-    if(!fileScanner->arquivo){
+    if(fileScanner->arquivo == NULL){
         printf("Erro na abertura do arquivo!");
         return NULL;
     }
@@ -43,7 +43,7 @@ int hasNext(FileScanner* leitor){
     return 0;
 }
 
-void newFile(char* arquivo){
+FILE* newFile(char* arquivo){
     char* arq = (char*)calloc(1, sizeof(char)*strlen(arquivo));
     arq = arquivo;
 
@@ -53,21 +53,15 @@ void newFile(char* arquivo){
         printf("Erro na abertura do arquivo!");
     }
 
-    fclose(file);
+    return file;
 }
 
-void FileWriter(char* arquivo, char* conteudo){
-    char* arq = (char*)calloc(1, sizeof(char)*strlen(arquivo));
-    arq = arquivo;
+void FileWriter(FILE* arquivo, float conteudo){
+    /*char* exp = (char*)calloc(1,sizeof(char)*strlen(conteudo));
+    exp = conteudo;*/
+    
+    printf("%f\n", conteudo);
 
-    char* exp = (char*)calloc(1,sizeof(char)*strlen(conteudo));
-    exp = conteudo;
-
-    FILE *file = fopen(arq, "a");
-
-    if(file == NULL){
-        printf("Erro na abertura do arquivo!");
-    }
-
-    fprintf(file, "%s\n", exp);
+    fprintf(arquivo, "%f\n", conteudo);
+    fclose(arquivo);
 }

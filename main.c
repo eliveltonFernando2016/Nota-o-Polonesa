@@ -13,31 +13,38 @@
 
 #include "Tradutor.h"
 
-void Gerador(FileScanner* fileScanner, char* NomeArquivo, int tipoServico){ //Gera uma tradução ou uma interpretação de expressão
+//Gera uma tradução ou uma interpretação de expressão
+void Gerador(FileScanner* fileScanner, int tipoServico){
     char* token;
 
-    char* fileName = (char*)calloc(1, sizeof(char)*strlen(NomeArquivo));
-    fileName = NomeArquivo;
+    FILE* file = newFile("Resultado.txt");
 
     do{
         token = nextn(fileScanner);
+
         if(tipoServico == 1){
-            FileWriter(fileName, PosFix(token));
+            //fprintf(newFile("ExpressaoTraduzida.txt"), "%s\n", PosFix(token)); //chama a função FileWriter que escreve as informações em um novo arquivo,
+                                                                               //tem como parametros um arquivo onde está sendo passado o newFile que cria um novo arquivo e o devolve,
+                                                                               //e o conteúdo a ser gravado no arquivo, no caso Posfix que pega a expressão padrão e transforma para pós-fixada.
         }
         else{
-            FileWriter(fileName, Interpretador(token));
+            fprintf(file, "%f\n", Interpretador(token));
         }
+
         free(token);
     } while (hasNext(fileScanner));
 }
 
 int main() {
-    FileScanner* fileScanner = newFileScanner("expressao.txt");
+    //Para traduzir!
+    /*FileScanner* fileScanner = newFileScanner("expressao.txt");
+    Gerador(fileScanner, 1);
+    fclose(fileScanner->arquivo);*/
 
-    Gerador(fileScanner, 1); //Para traduzir!
-
-    newFile("ExpressaoTraduzida.txt");
-    Gerador("ExpressaoTraduzida.txt", 2); // Para Interpretar!
+    // Para Interpretar!
+    FileScanner* fileScanner2 = newFileScanner("ExpressaoTraduzida.txt");
+    Gerador(fileScanner2, 2);
+    fclose(fileScanner2->arquivo);
 
     return (EXIT_SUCCESS);
 }

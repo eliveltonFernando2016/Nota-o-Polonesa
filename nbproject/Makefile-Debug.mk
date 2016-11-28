@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/FileManager.o \
 	${OBJECTDIR}/Pilha.o \
+	${OBJECTDIR}/Stack.o \
 	${OBJECTDIR}/Tradutor.o \
 	${OBJECTDIR}/main.o
 
@@ -74,6 +75,11 @@ ${OBJECTDIR}/Pilha.o: Pilha.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Pilha.o Pilha.c
+
+${OBJECTDIR}/Stack.o: Stack.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Stack.o Stack.c
 
 ${OBJECTDIR}/Tradutor.o: Tradutor.c
 	${MKDIR} -p ${OBJECTDIR}

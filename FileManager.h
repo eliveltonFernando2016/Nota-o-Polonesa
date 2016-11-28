@@ -32,7 +32,6 @@ typedef struct{
 FileScanner* newFileScanner(char* arquivo);
 char* nextn(FileScanner* leitor);
 int hasNext(FileScanner* leitor);
-void newFile(char* arquivo);
-void FileWriter(char* arquivo, char* conteudo);
+FILE* newFile(char* arquivo);
+void FileWriter(FILE* arquivo, float conteudo);
 #endif /* FILEMANAGER_H */
-

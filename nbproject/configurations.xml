@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>FileManager.h</itemPath>
       <itemPath>Pilha.h</itemPath>
+      <itemPath>Stack.h</itemPath>
       <itemPath>Tradutor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -13,6 +14,7 @@
                    projectFiles="true">
       <itemPath>FileManager.c</itemPath>
       <itemPath>Pilha.c</itemPath>
+      <itemPath>Stack.c</itemPath>
       <itemPath>Tradutor.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -53,6 +55,10 @@
       </item>
       <item path="Pilha.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Stack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Stack.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Tradutor.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Tradutor.h" ex="false" tool="3" flavor2="0">
@@ -88,6 +94,10 @@
       <item path="Pilha.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Pilha.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Stack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Stack.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Tradutor.c" ex="false" tool="0" flavor2="0">
       </item>
