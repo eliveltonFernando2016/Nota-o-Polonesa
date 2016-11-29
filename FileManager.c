@@ -56,12 +56,10 @@ FILE* newFile(char* arquivo){
     return file;
 }
 
-void FileWriter(FILE* arquivo, float conteudo){
-    /*char* exp = (char*)calloc(1,sizeof(char)*strlen(conteudo));
-    exp = conteudo;*/
-    
-    printf("%f\n", conteudo);
+void FileWriter(FILE* arquivo, char* conteudo){
+    char* exp = (char*)calloc(1,sizeof(char)*strlen(conteudo));
+    exp = conteudo;
 
-    fprintf(arquivo, "%f\n", conteudo);
+    fprintf(arquivo, "%s\n", exp);
     fclose(arquivo);
 }

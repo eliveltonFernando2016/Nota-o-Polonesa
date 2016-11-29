@@ -78,6 +78,8 @@ char* PosFix(char* expressao){
             }
         }
     }
+    
+    //printf("%s\n", p);
 
     return p;
 }

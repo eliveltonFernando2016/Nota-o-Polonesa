@@ -33,5 +33,5 @@ FileScanner* newFileScanner(char* arquivo);
 char* nextn(FileScanner* leitor);
 int hasNext(FileScanner* leitor);
 FILE* newFile(char* arquivo);
-void FileWriter(FILE* arquivo, float conteudo);
+void FileWriter(FILE* arquivo, char* conteudo);
 #endif /* FILEMANAGER_H */
