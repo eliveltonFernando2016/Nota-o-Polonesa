@@ -17,7 +17,13 @@
 void Gerador(FileScanner* fileScanner, int tipoServico){
     char* token;
 
-    FILE* file = fopen("ExpressaoTraduzida.txt", "w");
+    FILE* file;
+    if(tipoServico == 1){
+        file = fopen("ExpressaoTraduzida.txt", "w");
+    }
+    else{
+        file = fopen("Resultado.txt", "w");
+    }
 
     do{
         token = nextn(fileScanner);
@@ -28,23 +34,24 @@ void Gerador(FileScanner* fileScanner, int tipoServico){
                                                                                //e o conteúdo a ser gravado no arquivo, no caso Posfix que pega a expressão padrão e transforma para pós-fixada.
         }
         else{
-            //fprintf(file, "%f\n", Interpretador(token));
+            fprintf(file, "%f\n", Interpretador(token));
         }
 
         free(token);
     } while (hasNext(fileScanner));
+    fclose(file);
 }
 
 int main() {
     //Para traduzir!
-    FileScanner* fileScanner = newFileScanner("expressao.txt");
+    /*FileScanner* fileScanner = newFileScanner("expressao.txt");
     Gerador(fileScanner, 1);
-    fclose(fileScanner->arquivo);
+    free(fileScanner);*/
 
     // Para Interpretar!
-    /*FileScanner* fileScanner2 = newFileScanner("ExpressaoTraduzida.txt");
+    FileScanner* fileScanner2 = newFileScanner("ExpressaoTraduzida.txt");
     Gerador(fileScanner2, 2);
-    fclose(fileScanner2->arquivo);*/
+    free(fileScanner2);
 
     return (EXIT_SUCCESS);
 }
