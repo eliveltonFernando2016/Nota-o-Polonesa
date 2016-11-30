@@ -10,6 +10,8 @@
  *
  * Created on 27 de Novembro de 2016, 11:51
  */
+#include <math.h>
+
 #include "Stack.h"
 
 //inicializa uma pilha
