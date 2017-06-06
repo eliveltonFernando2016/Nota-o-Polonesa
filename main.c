@@ -24,7 +24,7 @@ void Gerador(FileScanner* fileScanner, int tipoServico){
     else{
         file = fopen("Resultado.txt", "w");
     }
-    
+
     if (file == NULL) {
         printf("Erro ao abrir arquivo!\n");
     }
@@ -33,13 +33,10 @@ void Gerador(FileScanner* fileScanner, int tipoServico){
         token = nextn(fileScanner);
 
         if(tipoServico == 1){
-            //fprintf(file, "%s\n", PosFix(token)); //chama a função FileWriter que escreve as informações em um novo arquivo,
-                                                                               //tem como parametros um arquivo onde está sendo passado o newFile que cria um novo arquivo e o devolve,
-                                                                               //e o conteúdo a ser gravado no arquivo, no caso Posfix que pega a expressão padrão e transforma para pós-fixada.
+            fprintf(file, "%s\n", PosFix(token));
         }
         else{
-            //fprintf(file, "%f\n", Interpretador(token));
-            Interpretador(file, token);
+            fprintf(file, "%f\n", Interpretador(token));
         }
 
         free(token);
@@ -49,9 +46,9 @@ void Gerador(FileScanner* fileScanner, int tipoServico){
 
 int main() {
     //Para traduzir!
-    /*FileScanner* fileScanner = newFileScanner("expressao.txt");
+    FileScanner* fileScanner = newFileScanner("expressao.txt");
     Gerador(fileScanner, 1);
-    free(fileScanner);*/
+    free(fileScanner);
 
     // Para Interpretar!
     FileScanner* fileScanner2 = newFileScanner("ExpressaoTraduzida.txt");

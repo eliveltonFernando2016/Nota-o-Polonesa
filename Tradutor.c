@@ -78,25 +78,26 @@ char* PosFix(char* expressao){
             }
         }
     }
-    
-    //printf("%s\n", p);
 
     return p;
 }
 
-void Interpretador(FILE* file, char* expressao){
+float Interpretador(char* expressao){
     Stack* stack = criaStack(strlen(expressao));
-    char* charConcat;
+    char* charAux = (char*)calloc(1, sizeof(char)*strlen(expressao));
+    float teste;
 
     float operacaoAux1 = 0, operacaoAux2 = 0;
-    int i=0, aux=0;
+    int i=0, aux=0, contAux=0;
 
     while (expressao[i] != '\0') {
         if(isdigit(expressao[i])){
             while (isdigit(expressao[i])) {
-                charConcat[aux++] = expressao[i++];
+                charAux[contAux++] = expressao[i++];
             }
-            pushStack(stack, atof(charConcat));
+            charAux[contAux] = '\0';
+            teste = atof(charAux);
+            pushStack(stack, teste);
         }
         else if(expressao[i] == '+'){
             operacaoAux1 = popStack(stack);
@@ -126,18 +127,13 @@ void Interpretador(FILE* file, char* expressao){
             operacaoAux2 = operacaoAux2/operacaoAux1;
             pushStack(stack, operacaoAux2);
         }
-        
+
         i++;
         aux = 0;
+        contAux = 0;
     }
 
-    //float res = popStack(stack);
-
-    /*free(stack);
-    free(charConcat);
-    free(charAux);*/
-
-    //fprintf(file, "%f\n", popStack(stack));
-
-    //return res;
+    float res = popStack(stack);
+    
+    return res;
 }

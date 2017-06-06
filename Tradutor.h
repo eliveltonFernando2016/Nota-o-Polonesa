@@ -6,6 +6,6 @@
 
 char* PosFix(char* expressao);
 
-void Interpretador(FILE* file, char* expressao);
+float Interpretador(char* expressao);
 #endif	// TRADUTOR_H
 
